@@ -1,0 +1,3 @@
+echo $(docker ps -a -q -f status=exited) | xargs -n1 docker -rm -v
+echo $(docker images -f "dangling=true" -q) | xargs -n1 docker rmi
+echo $(docker volume ls -qf dangling=true) | xargs -n1 docker volume rm
